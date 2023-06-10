@@ -51,6 +51,7 @@ function changeOperator(){
     //assign visible value to num1
     num1 = + displayString;
     operator = this.innerText;
+    displayString = "";
 
 }
 
