@@ -27,6 +27,14 @@ function power(a,b){
     return a^b;
 }
 
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((num) => 
+    num.addEventListener("click", () => {
+        displayString += num.innerText;
+        updateDisplay();
+    })
+)
+
 //call this on = press
 //later: if there's already values in a, oper, and b, run oper, assign the 
 //results to num1, set num2 to 0, and add the new operator to oper
@@ -40,10 +48,10 @@ function operate(a, oper, b){
 }
 
 //attach this to your number buttons
-function changeNumber(){
-    displayString += this.innerText;
-    updateDisplay();
-}
+//function changeNumber(){
+//    displayString += this.innerText;
+//    updateDisplay();
+//}
 
 //attach this to your function buttons
 function changeOperator(){
@@ -66,7 +74,10 @@ function updateDisplay(){
     document.getElementById("viewport").innerText = displayString;
 }
 
+function calculate() {
+    operate(num1, operator, num2);
+}
 
-
+calculate();
 //write a number function, iterate over grid and add it to each number,
 //like you did with the grid in the etch-a-sketch project
