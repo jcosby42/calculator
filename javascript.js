@@ -35,6 +35,16 @@ numbers.forEach((num) =>
     })
 )
 
+const operators = document.querySelectorAll(".operator");
+operators.forEach((op) => 
+    op.addEventListener("click", () => {
+        num1 = + displayString;
+        operator = op.innerText;
+        displayString += " " + op.innerText + " ";
+        updateDisplay();
+    })
+)
+
 //call this on = press
 //later: if there's already values in a, oper, and b, run oper, assign the 
 //results to num1, set num2 to 0, and add the new operator to oper
@@ -46,12 +56,6 @@ function operate(a, oper, b){
     if (oper ==="/") return divide(a,b);
     if (oper ==="^") return power(a,b);
 }
-
-//attach this to your number buttons
-//function changeNumber(){
-//    displayString += this.innerText;
-//    updateDisplay();
-//}
 
 //attach this to your function buttons
 function changeOperator(){
