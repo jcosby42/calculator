@@ -27,6 +27,7 @@ function power(a,b){
     return a^b;
 }
 
+<<<<<<< HEAD
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((num) => 
     num.addEventListener("click", () => {
@@ -71,6 +72,11 @@ allClear.addEventListener("click", () => {
 
 })
 
+=======
+//call this on = press
+//later: if there's already values in a, oper, and b, run oper, assign the 
+//results to num1, set num2 to 0, and add the new operator to oper
+>>>>>>> c8a2bc06e9bba7dcdfda1ae1ef97721372777e14
 
 function operate(a, oper, b){
     if (oper === "+") return add(a,b);
@@ -80,23 +86,52 @@ function operate(a, oper, b){
     if (oper ==="^") return power(a,b);
 }
 
+<<<<<<< HEAD
 //attach this to your function buttons
 /*function changeOperator(){
+=======
+//attach this to your number buttons
+function changeNumber(){
+    displayString += this.innerText;
+    updateDisplay();
+}
+
+//attach this to your function buttons
+function changeOperator(){
+>>>>>>> c8a2bc06e9bba7dcdfda1ae1ef97721372777e14
     //this is probably the right place to test for a completed equation
     //assign visible value to num1
     num1 = + displayString;
     operator = this.innerText;
     displayString = "";
 
+<<<<<<< HEAD
 }*/
 
+=======
+}
+
+//attach this to AC
+function clear(){
+    num1 = 0;
+    num2 = 0;
+    operator = "";
+}
+>>>>>>> c8a2bc06e9bba7dcdfda1ae1ef97721372777e14
 //call this after every number push
 function updateDisplay(){
     document.getElementById("viewport").innerText = displayString;
 }
 
+<<<<<<< HEAD
 function calculate() {
     operate(num1, operator, num2);
 }
 
 calculate();
+=======
+
+
+//write a number function, iterate over grid and add it to each number,
+//like you did with the grid in the etch-a-sketch project
+>>>>>>> c8a2bc06e9bba7dcdfda1ae1ef97721372777e14
