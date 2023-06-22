@@ -61,6 +61,17 @@ equalSign.addEventListener("click", () => {
     return result;
 })
 
+const allClear = document.querySelector("#AC");
+allClear.addEventListener("click", () => {
+    num1 = 0;
+    num2 = 0;
+    operator = "";
+    displayString = " .";
+    updateDisplay();
+
+})
+
+
 function operate(a, oper, b){
     if (oper === "+") return add(a,b);
     if (oper ==="-") return subtract(a,b);
@@ -79,12 +90,6 @@ function operate(a, oper, b){
 
 }*/
 
-//attach this to AC
-function clear(){
-    num1 = 0;
-    num2 = 0;
-    operator = "";
-}
 //call this after every number push
 function updateDisplay(){
     document.getElementById("viewport").innerText = displayString;
