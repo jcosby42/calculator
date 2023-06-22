@@ -71,7 +71,6 @@ allClear.addEventListener("click", () => {
 
 })
 
-
 function operate(a, oper, b){
     if (oper === "+") return add(a,b);
     if (oper ==="-") return subtract(a,b);
@@ -79,16 +78,6 @@ function operate(a, oper, b){
     if (oper ==="/") return divide(a,b);
     if (oper ==="^") return power(a,b);
 }
-
-//attach this to your function buttons
-/*function changeOperator(){
-    //this is probably the right place to test for a completed equation
-    //assign visible value to num1
-    num1 = + displayString;
-    operator = this.innerText;
-    displayString = "";
-
-}*/
 
 //call this after every number push
 function updateDisplay(){
