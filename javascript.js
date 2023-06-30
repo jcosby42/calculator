@@ -24,7 +24,7 @@ function remainder(a,b){
 }
 
 function power(a,b){
-    return a^b;
+    return a**b;
 }
 
 const numbers = document.querySelectorAll(".number");
@@ -124,6 +124,8 @@ function operate(a, oper, b){
     if (oper ==="*") return multiply(a,b);
     if (oper ==="/") return divide(a,b);
     if (oper ==="^") return power(a,b);
+    if (oper ==="%") return remainder(a,b);
+
 }
 
 //call this after every number push
