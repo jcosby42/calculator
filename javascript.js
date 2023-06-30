@@ -87,7 +87,36 @@ decimal.addEventListener("click", () => {
     }
     updateDisplay();
     //check this; see if you need to reassign currentNumber to something at the end
+    //appears to be assigning correctly as written
 })
+
+const negative = document.querySelector("#negative");
+negative.addEventListener("click", () => {
+    //in the spirit of just manipulating the displayString, just insert the negative
+    //sign before the current number
+    
+    //if no num1, then at the beginning of the string
+    if (!num1){
+        //check beginning of displayString for negative
+        if (displayString.charAt(0) === "-"){
+            //if it has one, take it away
+            displayString = displayString.slice(1, displayString.length);
+        } else {
+            //if it doesn't have one, put it in
+            displayString = "-" + displayString;
+        }
+    } else {     //if num1, then after the last " "
+        if (displayString.charAt(displayString.lastIndexOf(" ") + 1) === "-"){
+            displayString = displayString.slice(0, displayString.lastIndexOf("-")) 
+            + (displayString.slice(displayString.lastIndexOf("-") + 1));        
+        } else { //this seems to work
+            displayString = displayString.slice(0, displayString.lastIndexOf(" ") + 1) + "-" 
+            + displayString.slice(displayString.lastIndexOf(" ")+1);
+        }
+
+    }
+    updateDisplay();
+});
 
 function operate(a, oper, b){
     if (oper === "+") return add(a,b);
