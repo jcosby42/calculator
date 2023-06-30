@@ -58,6 +58,7 @@ equalSign.addEventListener("click", () => {
     let result = operate(num1, operator, num2);
     displayString = result;
     updateDisplay();
+    displayString = "";
     return result;
 })
 
@@ -66,9 +67,26 @@ allClear.addEventListener("click", () => {
     num1 = 0;
     num2 = 0;
     operator = "";
-    displayString = " .";
-    updateDisplay();
+    displayString = "";
+    document.getElementById("viewport").innerText = "0.";
+})
 
+const decimal = document.querySelector("#decimal");
+decimal.addEventListener("click", () => {
+    let currentNumber;
+    //create a new parseNumber function?
+    //that's for the other branch
+    if (!num1){
+        currentNumber = + displayString;
+    } else {
+        currentNumber = + displayString.slice(displayString.lastIndexOf(" "));
+    }
+    if (!currentNumber.toString().includes(".")){
+        displayString += ".";
+        //any particular reason to do this vs. innerText?
+    }
+    updateDisplay();
+    //check this; see if you need to reassign currentNumber to something at the end
 })
 
 function operate(a, oper, b){
