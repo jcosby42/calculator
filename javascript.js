@@ -50,12 +50,14 @@ operators.forEach((op) =>
 
 const equalSign = document.querySelector("#equals");
 equalSign.addEventListener("click", () => {
-    //assign everything after the operator to num2
-    //possibly slice from the second space and convert it to a number?
-    //probably better to change the display function so that it's not fiddling
-    //with a whole string
-    num2 = + displayString.slice(displayString.lastIndexOf(" "));
-    let result = operate(num1, operator, num2);
+    //test for single digit
+    let result; 
+    if (displayString.indexOf(" ") < 0){
+        result = + displayString;
+    } else {
+        num2 = + displayString.slice(displayString.lastIndexOf(" "));
+        result = operate(num1, operator, num2);
+    }
     displayString = result;
     updateDisplay();
     displayString = "";
