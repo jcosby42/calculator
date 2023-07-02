@@ -27,6 +27,13 @@ function power(a,b){
     return a**b;
 }
 
+function ac() {
+    num1 = 0;
+    num2 = 0;
+    operator = "";
+    displayString = "";
+    document.getElementById("viewport").innerText = "0.";
+}
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((num) => 
     num.addEventListener("click", () => {
@@ -39,6 +46,13 @@ const operators = document.querySelectorAll(".operator");
 operators.forEach((op) => 
     op.addEventListener("click", () => {
         //check for a num1 and an operator
+        if (operator !== ""){
+            num2 = + displayString.slice(displayString.lastIndexOf(" "));
+            let result = operate(num1, operator, num2);
+            ac();
+            displayString = result;
+            num1 = result;
+        }
         //if yes, run operate
         //otherwise do this
         num1 = + displayString;
@@ -65,13 +79,14 @@ equalSign.addEventListener("click", () => {
 })
 
 const allClear = document.querySelector("#AC");
-allClear.addEventListener("click", () => {
+allClear.addEventListener("click", ac);
+/*allClear.addEventListener("click", () => {
     num1 = 0;
     num2 = 0;
     operator = "";
     displayString = "";
     document.getElementById("viewport").innerText = "0.";
-})
+})*/
 
 const decimal = document.querySelector("#decimal");
 decimal.addEventListener("click", () => {
